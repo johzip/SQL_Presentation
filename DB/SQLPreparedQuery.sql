@@ -1,6 +1,6 @@
 use Student;
 
-
+/*
 create table Student
 (	
 	StudentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -113,7 +113,7 @@ VALUES
 	(22,1),(23,2),(24,3),(25,4),(26,5),(27,6),(28,7),
 	(29,1),(30,2),(31,3),(32,4),(33,5);
 
-	
+	*/
 SELECT *
 From Student;
 
@@ -128,3 +128,8 @@ From Subjekt;
 
 SELECT *
 From StudentConnSubject;
+
+SELECT s.SubjektName ,f.FacultyName,t.TeacherName
+From Subjekt s, Teacher t, Faculty f 
+WHERE s.FacultyID = f.FacultyID AND s.TeacherID = t.TeacherID
+ORDER BY f.FacultyID asc;
