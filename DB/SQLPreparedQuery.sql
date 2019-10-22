@@ -112,8 +112,8 @@ VALUES
 	(15,1),(16,2),(17,3),(18,4),(19,5),(20,6),(21,7),
 	(22,1),(23,2),(24,3),(25,4),(26,5),(27,6),(28,7),
 	(29,1),(30,2),(31,3),(32,4),(33,5);
-
 	*/
+	
 SELECT *
 From Student;
 
@@ -129,7 +129,14 @@ From Subjekt;
 SELECT *
 From StudentConnSubject;
 
-SELECT s.SubjektName ,f.FacultyName,t.TeacherName
+SELECT f.FacultyName ,s.SubjektName,t.TeacherName
 From Subjekt s, Teacher t, Faculty f 
 WHERE s.FacultyID = f.FacultyID AND s.TeacherID = t.TeacherID
 ORDER BY f.FacultyID asc;
+
+
+SELECT f.FacultyName, COUNT(f.FacultyID) as 'amount of Subjekts'
+From Subjekt s, Faculty f 
+WHERE s.FacultyID = f.FacultyID
+Group By f.FacultyName
+ORDER BY count(f.FacultyID) asc;
